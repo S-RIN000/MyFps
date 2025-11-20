@@ -10,6 +10,10 @@ namespace MyFps
     public class BFirstTrigger : MonoBehaviour
     {
         #region Variables
+        //참조 : 충돌체
+        private BoxCollider collider;
+
+        //시퀀스
         //플레이어 오브젝트
         public GameObject thePlayer;
 
@@ -25,9 +29,18 @@ namespace MyFps
         #endregion
 
         #region Unity Event Method
+        private void Awake()
+        {
+            //참조 : 충돌체
+            collider = GetComponent<BoxCollider>();
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             StartCoroutine(SequencePlay());
+
+            //충돌체 비활성화 (or Kill)
+            collider.enabled = false;
         }
         #endregion
 
@@ -47,7 +60,6 @@ namespace MyFps
 
             //초기화
             sequenceText.text = "";     //텍스트 초기화
-            this.transform.GetComponent<BoxCollider>().enabled = false;     //충돌체 비활성화
 
             //5. 플레이어 캐릭터 활성화
             thePlayer.SetActive(true);
