@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &367694929560931503
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4614590336327453505}
+  m_Layer: 9
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4614590336327453505
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367694929560931503}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.0063716993, y: -0.9994251, z: 0.032428518, w: 0.00756324}
+  m_LocalPosition: {x: 0.0025632232, y: 0.09232595, z: -0.19303316}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3696439805872983589}
+  m_LocalEulerAnglesHint: {x: 0, y: -8.77, z: 0}
 --- !u!1 &3234742015143470754
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +75,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 7c9363b8ec5c11e45b3e2b6059b4a10c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.7
   m_Pitch: 1
@@ -160,6 +191,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5002778681684439013}
+  - {fileID: 4614590336327453505}
   m_Father: {fileID: 3696439805872983597}
   m_LocalEulerAnglesHint: {x: 4.1177034, y: 170.19133, z: 1.7336102}
 --- !u!1 &3696439805872951821

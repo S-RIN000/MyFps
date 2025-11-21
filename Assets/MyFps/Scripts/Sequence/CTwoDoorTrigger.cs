@@ -10,6 +10,8 @@ namespace MyFps
 
         //½ÃÄö½º
         public Door door;
+
+        public GameObject robot;
         #endregion
 
         #region Unity Event Method
@@ -30,6 +32,7 @@ namespace MyFps
         private void SequencePlay()
         {
             door.Activate();
+            robot.SetActive(true);
         }
         #endregion
     }

@@ -22,7 +22,7 @@ namespace MyFps
         #endregion
 
         #region Custom Method
-
+        //Interactive Action
         protected override void DoAction()
         {
             //액션 UI 감추기
