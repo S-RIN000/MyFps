@@ -26,6 +26,9 @@ namespace MyFps
         //시나리오 텍스트
         [SerializeField]
         private string sequence = "Looks like a weapon on that table";
+
+        //오디오
+        public AudioSource line03;
         #endregion
 
         #region Unity Event Method
@@ -51,6 +54,7 @@ namespace MyFps
             thePlayer.SetActive(false);
             //1. 대사 출력
             sequenceText.text = sequence;
+            line03.Play();
             //2. 2초 딜레이
             yield return new WaitForSeconds(2f);
             //3. 화살표 활성화

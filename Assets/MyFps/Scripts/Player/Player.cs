@@ -9,6 +9,11 @@ namespace MyFps
     public class Player : MonoBehaviour
     {
         #region Variables
+        //씬 이동
+        public SceneFader fader;
+        [SerializeField]
+        private string loadToScene = "GameOver";
+
         //참조
         private PlayerHealth playerHealth;
 
@@ -55,7 +60,22 @@ namespace MyFps
 
 
             //데미지 사운드 3개 중 1개 랜덤 발생
-            
+            int randNumber = Random.Range(1, 4); //1, 2, 3
+            if (randNumber == 1)
+            {
+                hurt01.Play();
+            }
+            else if (randNumber == 2)
+            {
+                hurt02.Play();
+            }
+            else if (randNumber == 3)
+            {
+                hurt03.Play();
+            }
+
+            //화면 흔들림 효과
+            CinemachineShake.Instance.ShakeCamera(1f, 1f, 1f);
 
             yield return new WaitForSeconds(1.0f);
             damageUI.SetActive(false);
@@ -65,7 +85,8 @@ namespace MyFps
         public void OnDie()
         {
             //게임오버 씬으로 이동 
-            Debug.Log("게임오버 씬으로 이동");
+            //Debug.Log("게임오버 씬으로 이동");
+            fader.FadeTo(loadToScene);
         }
         #endregion
     }

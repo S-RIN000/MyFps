@@ -21,7 +21,14 @@ namespace MyFps
 
         //시나리오 텍스트
         [SerializeField]
-        private string sequence01 = "I need get out of here";
+        private string sequence01 = "...Where am I?";
+
+        [SerializeField]
+        private string sequence02 = "I need to get out of here";
+
+        //사운드
+        public AudioSource line01;      //시퀀스01
+        public AudioSource line02;      //시퀀스02
         #endregion
 
         #region Unity Event Method
@@ -39,12 +46,20 @@ namespace MyFps
             //0. 플레이 캐릭터 비활성화
             thePlayer.SetActive(false);
             //1. 페이드인 연출 (1초 대기 후 페이드인 효과) - 2초
-            fader.FadeStart(1f);
+            fader.FadeStart(2+3f);
 
             //2. 화면 하단에 시나리오 텍스트 화면 출력 (3초)
             sequenceText.text = sequence01;
+            line01.Play();  
             //3. 3초 후에 시나리오 텍스트 삭제
             yield return new WaitForSeconds(3f);
+
+            //4. 화면 하단에 시나리오 텍스트 화면 출력 (3초)
+            sequenceText.text = sequence02;
+            line02.Play();
+            //3. 3초 후에 시나리오 텍스트 삭제
+            yield return new WaitForSeconds(3f);
+
             sequenceText.text = "";
             
             //4. 플레이 캐릭터 활성화

@@ -45,7 +45,15 @@ namespace MyFps
             //발사 버튼 입력처리, 연사 방지
             if(Input.GetButtonDown("Fire") && IsFire == false)
             {
-                Shoot();
+                //무기 소지 여부
+                if (PlayerState.Instance.WeaponType != WeaponType.None)
+                {
+                    //탄환 체크
+                    if (PlayerState.Instance.UseAmmo(1))
+                    {
+                        Shoot();
+                    }
+                }
             }
         }
 
