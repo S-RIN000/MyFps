@@ -23,9 +23,12 @@ namespace MyFps
         //시퀀스 텍스트
         public TextMeshProUGUI sequenceText;
 
+        //배경 UI
+        public GameObject backgroundUI;
+
         //시나리오 텍스트
         [SerializeField]
-        private string sequence = "Looks like a weapon on that table";
+        private string sequence = "You can grab the weapon off the desk";
 
         //오디오
         public AudioSource line03;
@@ -53,6 +56,7 @@ namespace MyFps
             //0. 플레이 캐릭터 비활성화
             thePlayer.SetActive(false);
             //1. 대사 출력
+            backgroundUI.SetActive(true);
             sequenceText.text = sequence;
             line03.Play();
             //2. 2초 딜레이
@@ -63,6 +67,7 @@ namespace MyFps
             yield return new WaitForSeconds(1f);
 
             //초기화
+            backgroundUI.SetActive(false);
             sequenceText.text = "";     //텍스트 초기화
 
             //5. 플레이어 캐릭터 활성화

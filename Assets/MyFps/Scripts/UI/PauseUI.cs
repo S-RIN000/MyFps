@@ -15,6 +15,12 @@ namespace MyFps
         private string loadToScene = "MainMenu";
 
         private GameObject thePlayer;
+
+        //키 설정 UI
+        public GameObject settingUI;
+
+        private float lastClickTime = 0f; // 마지막 클릭 시간
+public float clickCooldown = 0.3f; // 쿨타임 (0.3초)
         #endregion
 
         #region Unity Event Method
@@ -25,10 +31,12 @@ namespace MyFps
         }
         private void Update()
         {
+            
             if(Input.GetKeyDown(KeyCode.Escape) && thePlayer.activeSelf == true)
             {
                 Toggle();
             }
+            
         }
         #endregion
 
@@ -55,6 +63,7 @@ namespace MyFps
                 //마우스 커서 초기화(in 플레이 화면)
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
+                settingUI.SetActive(false);
             }    
         }
 
@@ -67,6 +76,11 @@ namespace MyFps
             //Time.timeScale = 0.0f;
             //fader.FadeTo(loadToScene);
             Debug.Log("Go To Menu");
+        }
+
+        public void SettingUI()
+        {
+            settingUI.SetActive(!settingUI.activeSelf);
         }
         #endregion
     }

@@ -22,8 +22,17 @@ namespace MyFps
             RaycastHit hit;     //hit 했을 때 hit 정보를 저장
             if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit))
             {
-                //true = hit에 성공 => 정보 저장
-                distanceFromTarget = hit.distance;
+                Interactive interactive = hit.transform.GetComponent<Interactive>();
+
+                //interactive 한 오브젝트에 hit 성공하면
+                if(interactive != null)
+                {
+                    distanceFromTarget = hit.distance;
+                }
+                else
+                {
+                    distanceFromTarget = Mathf.Infinity;
+                }
                 toTarget = distanceFromTarget;
             }
         }

@@ -10,6 +10,8 @@ namespace MyFps
         #region Variables
         [SerializeField]
         private int giveAmmo = 7;   //Ammo 지급 갯수
+
+        public GameObject table;
         #endregion
 
         #region Unity Evemt Method
@@ -23,6 +25,7 @@ namespace MyFps
 
             //아이템 킬
             Destroy(gameObject);
+            Destroy(table);
         }
         #endregion
     }

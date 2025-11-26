@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 namespace MyFps
 {
@@ -16,6 +17,9 @@ namespace MyFps
         public AudioSource bgm02;
 
         public GameObject robot;
+
+        //경고 UI
+        public GameObject warningUI;
         #endregion
 
         #region Unity Event Method
@@ -29,6 +33,7 @@ namespace MyFps
             SequencePlay();
             //충돌체 비활성화 (or Kill)
             collider.enabled = false;
+            StartCoroutine(HideUI());
         }
         #endregion
 
@@ -40,6 +45,15 @@ namespace MyFps
 
             door.Activate();
             robot.SetActive(true);
+        }
+
+        IEnumerator HideUI()
+        {
+            warningUI.SetActive(true);
+
+            yield return new WaitForSeconds(2.8f);
+            warningUI.SetActive(false);
+
         }
         #endregion
     }
