@@ -18,9 +18,6 @@ namespace MyFps
 
         //키 설정 UI
         public GameObject settingUI;
-
-        private float lastClickTime = 0f; // 마지막 클릭 시간
-public float clickCooldown = 0.3f; // 쿨타임 (0.3초)
         #endregion
 
         #region Unity Event Method
@@ -74,8 +71,15 @@ public float clickCooldown = 0.3f; // 쿨타임 (0.3초)
         public void MainMenu()
         {
             //Time.timeScale = 0.0f;
-            //fader.FadeTo(loadToScene);
+            fader.FadeTo(loadToScene);
+            Time.timeScale = 1.0f;
             Debug.Log("Go To Menu");
+
+            //탄환, 무기 초기화
+            if (PlayerState.Instance != null)
+            {
+                PlayerState.Instance.ResetGame();
+            }
         }
 
         public void SettingUI()

@@ -6,7 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/MyFps/Scene/PlayScene.unity
+    path: Assets/MyFps/Scene/MainMenu.unity
+    guid: 1051933c619439a469c188ba2bbffdb6
+  - enabled: 1
+    path: Assets/MyFps/Scene/PlayScene01.unity
     guid: 7ccf759d69d70cf4e8e4b8bb99dee347
   - enabled: 1
     path: Assets/MyFps/Scene/GameOver.unity

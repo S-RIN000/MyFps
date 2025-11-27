@@ -66,6 +66,12 @@ namespace MyFps
         {
             weaponType = type;
         }
+
+        public void ResetGame()
+        {
+            ammoCount = 0;
+            weaponType = WeaponType.None;
+        }
         #endregion
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace MyFps
 {
@@ -14,7 +15,7 @@ namespace MyFps
         [SerializeField]
         private string loadToScene = "MainMenu";
         [SerializeField]
-        private string backToScene = "PlayScene";
+        private string backToScene = "PlayScene01";
         #endregion
 
         #region Unity Event Method
@@ -33,12 +34,18 @@ namespace MyFps
         public void Retry()
         {
             fader.FadeTo(backToScene);
+            
+            //탄환, 무기 초기화
+            if (PlayerState.Instance != null)
+            {
+                PlayerState.Instance.ResetGame();
+            }
         }
 
         public void MainMenu()
         {
-            Debug.Log("Goto MainMenu");
-            //fader.FadeTo(loadToScene);
+            //Debug.Log("Goto MainMenu");
+            fader.FadeTo(loadToScene);
         }
         #endregion
     }

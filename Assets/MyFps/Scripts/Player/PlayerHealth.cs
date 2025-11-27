@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Events;
+using TMPro;
 
 namespace MyFps
 {
@@ -11,6 +12,10 @@ namespace MyFps
         private float health;
         [SerializeField]
         private float maxHealth = 20f;
+
+        //healthUI
+        public TextMeshProUGUI healthText;
+        public TextMeshProUGUI maxHealthText;
 
         //죽음체크
         private bool isDeath = false;
@@ -26,6 +31,19 @@ namespace MyFps
         {
             //초기화
             health = maxHealth;
+        }
+        private void Update()
+        {
+            if (health > 0.1f)
+            {
+                healthText.text = health.ToString();
+            }
+            else if(health <0.1)
+            {
+                healthText.text = "0";
+            }
+
+            maxHealthText.text = maxHealth.ToString();
         }
         #endregion
 

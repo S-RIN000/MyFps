@@ -2523,7 +2523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1250696906}
   firePoint: {fileID: 1704023295}
-  shootType: 1
+  shootType: 0
   bulletPrefab: {fileID: 3705685733595698054, guid: 9ca4da14cb9e3ec4abe7bfcfa400d79c, type: 3}
   attackRange: 200
   attackDamage: 5

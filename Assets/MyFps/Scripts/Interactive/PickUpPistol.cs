@@ -18,6 +18,8 @@ namespace MyFps
 
         public GameObject ammoUI;
 
+        public GameObject healthUI;
+
         public WeaponType weaponType = WeaponType.Pistol;
         #endregion
 
@@ -27,6 +29,7 @@ namespace MyFps
             //초기화
             realGun.SetActive(false);
             //ammoUI.SetActive(false);
+            healthUI.SetActive(false);
         }
         #endregion
 
@@ -46,6 +49,9 @@ namespace MyFps
 
             //탄환 UI 활성화
             ammoUI.SetActive(true);
+
+            //health UI 활성화
+            healthUI.SetActive(true);
 
             //아이템 킬
             Destroy(gameObject);
