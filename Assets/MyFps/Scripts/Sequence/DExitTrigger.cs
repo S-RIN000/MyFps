@@ -45,10 +45,11 @@ namespace MyFps
             //배경음 정지
             bgm02.Stop();
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.1f);
 
-            //fader.FadeTo(loadToScene);
+            fader.FadeTo(loadToScene);
             Debug.Log($"Go To {loadToScene}");
+            //PlayerState.Instance.SetWeaponType(WeaponType.Pistol);
         }
         #endregion 
     }

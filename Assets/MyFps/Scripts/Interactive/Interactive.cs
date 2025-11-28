@@ -52,15 +52,16 @@ namespace MyFps
             //만약 Action 버튼을 누르면
             if (Input.GetButtonDown("Action"))
             {
+                //충돌체 제거
+                collider.enabled = false;
+
                 //액션 UI 감추기
                 HideActionUI();
 
                 //"Do Action" - 인터렉티브 액션
                 DoAction();
 
-                //충돌체 제거
-                collider.enabled = false;
-                HideActionUI();
+                //HideActionUI();
             }
         }
         protected virtual void OnMouseExit()

@@ -8186,73 +8186,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1474474685
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1474474686}
-  - component: {fileID: 1474474687}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1474474686
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1474474685}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6309023, y: 2.521721, z: 1.5507843}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1474474687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1474474685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fe12046f08a668489e745939c8bac8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: MenuMusic
-    clip: {fileID: 8300000, guid: 35cdc7cd25b33e446a8592ec20db0c79, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: ButtonHit
-    clip: {fileID: 8300000, guid: 3ed1015ee9c3b3b448572e903e9407f3, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: SHAmb
-    clip: {fileID: 8300000, guid: f9458bd5a1456f344b253ea3bb9b37cf, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
-    playOnAwake: 0
-    source: {fileID: 0}
-  bgmSound: 
 --- !u!1 &1505534252
 GameObject:
   m_ObjectHideFlags: 0
@@ -8986,6 +8919,73 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2070669790}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &4154240790753891601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7731667656135161643}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.6309023, y: 2.521721, z: 1.5507843}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6977790397526281443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7731667656135161643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fe12046f08a668489e745939c8bac8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: MenuMusic
+    clip: {fileID: 8300000, guid: 35cdc7cd25b33e446a8592ec20db0c79, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: ButtonHit
+    clip: {fileID: 8300000, guid: 3ed1015ee9c3b3b448572e903e9407f3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: SHAmb
+    clip: {fileID: 8300000, guid: f9458bd5a1456f344b253ea3bb9b37cf, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  bgmSound: 
+--- !u!1 &7731667656135161643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4154240790753891601}
+  - component: {fileID: 6977790397526281443}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -9001,4 +9001,4 @@ SceneRoots:
   - {fileID: 739317642}
   - {fileID: 1186804356}
   - {fileID: 1381061635}
-  - {fileID: 1474474686}
+  - {fileID: 4154240790753891601}

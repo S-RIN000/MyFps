@@ -7,6 +7,7 @@ namespace MyFps
     {
         None = 0,   //무기 없음
         Pistol,
+        HealMatic,
 
     }
     /// <summary>
@@ -33,9 +34,12 @@ namespace MyFps
         {
             base.Awake();
 
-            //플레이어 데이터 초기화
+            //플레이어 데이터 초기화, 치팅
             ammoCount = 0;
             weaponType = WeaponType.None;
+
+            //TO DO : cheating(=>2번씬에서 총 보이게)
+            weaponType = WeaponType.Pistol;
         }
         #endregion
 
@@ -67,6 +71,7 @@ namespace MyFps
             weaponType = type;
         }
 
+        //탄환, 무기 초기화
         public void ResetGame()
         {
             ammoCount = 0;
