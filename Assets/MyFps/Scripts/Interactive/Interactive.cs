@@ -71,6 +71,7 @@ namespace MyFps
         #endregion
 
         #region Custom Method
+
         protected virtual void ShowActionUI()
         {
             extraCross.SetActive(true);

@@ -2190,6 +2190,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 39563018588499683, guid: eace14a3c2298da4c8a85b0f0628dd75, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5388495303012352945, guid: eace14a3c2298da4c8a85b0f0628dd75, type: 3}
       propertyPath: healthText
       value: 

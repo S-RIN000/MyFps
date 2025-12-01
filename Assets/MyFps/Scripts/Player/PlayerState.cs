@@ -10,6 +10,18 @@ namespace MyFps
         HealMatic,
 
     }
+
+    //퍼즐 아이템 enum 정의
+    public enum PuzzleItem
+    {
+        None = 0,
+        Key01,
+        LeftEye,
+        RightEye,
+        MaxPuzzleItem
+    }
+
+
     /// <summary>
     /// 플레이어의 데이터를 관리하는 클래스
     /// 모든 씬에서 계속 데이터를 유지 관리 
@@ -22,6 +34,10 @@ namespace MyFps
 
         //소지 무기 타입
         private WeaponType weaponType;
+
+        //퍼즐 아이템 획득여부
+        [SerializeField]
+        private bool[] puzzleItems;
         #endregion
 
         #region Property
@@ -37,6 +53,8 @@ namespace MyFps
             //플레이어 데이터 초기화, 치팅
             ammoCount = 0;
             weaponType = WeaponType.None;
+
+            puzzleItems = new bool[(int)PuzzleItem.MaxPuzzleItem];
 
             //TO DO : cheating(=>2번씬에서 총 보이게)
             weaponType = WeaponType.Pistol;
@@ -71,6 +89,17 @@ namespace MyFps
             weaponType = type;
         }
 
+        //[]매개변수로 입력 받은 퍼즐 아이템 획득 여부
+        public bool havePuzzleItem(PuzzleItem puzzleItem)
+        {
+            return puzzleItems[(int)puzzleItem];
+        }
+
+        //[]매개변수로 입력 받은 퍼즐 아이템 획득
+        public void GetInPuzzleItem(PuzzleItem puzzleItem)
+        {
+            puzzleItems[(int)puzzleItem] = true;
+        }
         //탄환, 무기 초기화
         public void ResetGame()
         {

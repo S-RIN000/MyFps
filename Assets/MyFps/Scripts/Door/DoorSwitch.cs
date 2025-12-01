@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 namespace MyFps
 {
@@ -13,10 +14,14 @@ namespace MyFps
         #region Variables
         public Door door;       //문닫기, 열기 할 문 게임 오브젝트
 
-        public Renderer renderer;       //자식 컴퍼넌트라서 겟컴퍼넌트x public o
-
+        public Renderer renderer;           //자식 컴퍼넌트라서 겟컴퍼넌트x public o
         private Material originMaterial;    //오리진 컬러
         public Material closeMaterial;      //빨간색
+
+        public TextMeshProUGUI sequenceText;    //열쇠 부족 체크 텍스트
+
+        [SerializeField]
+        private PuzzleItem needKey = PuzzleItem.None;   //퍼즐 아이템 변수
         #endregion
 
         #region Unity Event Method
@@ -45,13 +50,25 @@ namespace MyFps
 
         IEnumerator Toggle()
         {
-            if(door.IsActive)
+            //열쇠 체크
+            if (needKey == PuzzleItem.None || PlayerState.Instance.havePuzzleItem(needKey))
             {
-                door.Deactivate();
+                //문 열고 닫기
+                if (door.IsActive)
+                {
+                    door.Deactivate();
+                }
+                else
+                {
+                    door.Activate();
+                }
             }
             else
             {
-                door.Activate();
+                sequenceText.text = "You Need Key";
+                //Debug.Log("You need key");
+                yield return new WaitForSeconds(2f);
+                sequenceText.text = "";
             }
 
             //충돌체 복구 (1초)
@@ -60,15 +77,14 @@ namespace MyFps
         }
 
         void DoorOpen()
-        {
-            action = "Close the Door";
-            renderer.material = closeMaterial;
-            
+        {            
+                action = "Close the Door";
+                renderer.material = closeMaterial;       
         }
         void DoorClose()
-        {            
-            action = "Open the Door";
-            renderer.material = originMaterial;
+        {
+                action = "Open the Door";
+                renderer.material = originMaterial;       
         }
         #endregion
     }
