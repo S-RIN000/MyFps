@@ -27,31 +27,37 @@ namespace MyFps
 
         IEnumerator MatchPuzzle()
         {
-            if (PlayerState.Instance.havePuzzleItem(PuzzleItem.LeftEye))
+            bool isLeft = PlayerState.Instance.HavePuzzleItem(PuzzleItem.LeftEye);
+            bool isRight = PlayerState.Instance.HavePuzzleItem(PuzzleItem.RightEye);
+
+            //퍼즐 조각 맞추기
+            if (isLeft)
             {
-                leftEye.SetActive(true);
-                collider.enabled = true;
+                leftEye.SetActive(true);               
             }
 
-            if (PlayerState.Instance.havePuzzleItem(PuzzleItem.RightEye))
+            if (isRight)
             {
-                rightEye.SetActive(true);
-                collider.enabled = true;
+                rightEye.SetActive(true);                
             }
-            else
-            {
-                sequenceText.text = "you need more eye";
-                yield return new WaitForSeconds(0.8f);
-
-                sequenceText.text = "";
-            }
-
-            if (PlayerState.Instance.havePuzzleItem(PuzzleItem.LeftEye) && PlayerState.Instance.havePuzzleItem(PuzzleItem.RightEye))
+       
+            //모든 퍼즐 조각을 다 맞추었는지 체크
+            if (isLeft && isRight)
             {
                 collider.enabled = false;
                 
                 yield return new WaitForSeconds(0.8f);
                 doorSwitch.SetActive(true);
+            }
+            else  //실패
+            {
+                sequenceText.text = "you need more eye";
+                yield return new WaitForSeconds(0.8f);
+
+                sequenceText.text = "";
+
+                //모두 맞추는 것에 실패했을 때만 충돌체 복구 
+                collider.enabled = true;
             }
            
         }

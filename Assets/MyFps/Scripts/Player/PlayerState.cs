@@ -21,7 +21,6 @@ namespace MyFps
         MaxPuzzleItem
     }
 
-
     /// <summary>
     /// 플레이어의 데이터를 관리하는 클래스
     /// 모든 씬에서 계속 데이터를 유지 관리 
@@ -38,6 +37,7 @@ namespace MyFps
         //퍼즐 아이템 획득여부
         [SerializeField]
         private bool[] puzzleItems;
+
         #endregion
 
         #region Property
@@ -90,15 +90,27 @@ namespace MyFps
         }
 
         //[]매개변수로 입력 받은 퍼즐 아이템 획득 여부
-        public bool havePuzzleItem(PuzzleItem puzzleItem)
+        public bool HavePuzzleItem(PuzzleItem puzzleItem)
         {
+            //아이템이 없다
+            if (puzzleItem == PuzzleItem.None || puzzleItem == PuzzleItem.MaxPuzzleItem)
+            {
+                Debug.Log("out of range");
+                return false;
+            }
             return puzzleItems[(int)puzzleItem];
         }
 
-        //[]매개변수로 입력 받은 퍼즐 아이템 획득
-        public void GetInPuzzleItem(PuzzleItem puzzleItem)
+        //[]매개변수로 입력 받은 퍼즐 아이템 획득, 성공/실패 처리
+        public bool GetInPuzzleItem(PuzzleItem puzzleItem)
         {
+            //획득 실패
+            if(puzzleItem == PuzzleItem.None || puzzleItem == PuzzleItem.MaxPuzzleItem)
+                return false;
+
+            //획득 성공
             puzzleItems[(int)puzzleItem] = true;
+            return true;
         }
         //탄환, 무기 초기화
         public void ResetGame()

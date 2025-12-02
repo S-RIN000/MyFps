@@ -51,7 +51,7 @@ namespace MyFps
         IEnumerator Toggle()
         {
             //¿­¼è Ã¼Å©
-            if (needKey == PuzzleItem.None || PlayerState.Instance.havePuzzleItem(needKey))
+            if (needKey == PuzzleItem.None || PlayerState.Instance.HavePuzzleItem(needKey))
             {
                 //¹® ¿­°í ´Ý±â
                 if (door.IsActive)

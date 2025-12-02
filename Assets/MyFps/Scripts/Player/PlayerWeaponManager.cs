@@ -14,7 +14,7 @@ namespace MyFps
         #endregion
 
         #region Unity Event Method
-        private void Awake()
+        private void Start()
         {
             //현재 무장 무기 세팅
             SetCurrentWeapon(PlayerState.Instance.WeaponType);
