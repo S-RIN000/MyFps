@@ -10,7 +10,7 @@ namespace MyFps
         #region Variables
         public Sound[] sounds;  //관리하는 사운드 목록
 
-        private string bgmSound = "";    //현재 플레이 되고 있는 배경음 이름
+        public string bgmSound = "";    //현재 플레이 되고 있는 배경음 이름
         #endregion
 
         #region Unity Event Method
@@ -121,6 +121,11 @@ namespace MyFps
             }
 
             sound.source.Play();
+        }
+
+        public void StopBGM()
+        {
+            Stop(bgmSound);
         }
         #endregion
     }

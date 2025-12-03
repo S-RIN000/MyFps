@@ -19,6 +19,9 @@ namespace MyFps
         public UnityAction OnActivate;
         public UnityAction OnDeactivate;
 
+        //적 등록
+        public GunMan[] enemies;
+
         //사운드
         //public AudioSource audioSource;
 
@@ -64,6 +67,11 @@ namespace MyFps
 
             //활성화 시 등록된 함수 호출
             OnActivate?.Invoke();          
+
+            foreach (var enemy in enemies)
+            {
+                enemy.OnActive();
+            }
         }
         public void Deactivate()
         {
@@ -71,6 +79,11 @@ namespace MyFps
 
             //비활성화 시 등록된 함수 호출
             OnDeactivate?.Invoke();
+
+            foreach (var enemy in enemies)
+            {
+                enemy.OnActive();
+            }
         }
         #endregion
     }
