@@ -1,6 +1,7 @@
-using UnityEngine;
 using System.Collections;
 using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace MyFps
 {
@@ -19,11 +20,18 @@ namespace MyFps
 
         //시퀀스 텍스트
         public TextMeshProUGUI sequenceText;
+
+        //PlayerPrefs 파라미터
+        private const string SceneNumber = "SceneNumber";
         #endregion
 
         #region Unity Event Method
         private void Start()
         {
+            //시작하자마자 데이터 저장
+            SaveData();
+
+            //시작하자마자 오프닝 연출
             StartCoroutine(SequencePlay());
         }
         #endregion
@@ -46,6 +54,22 @@ namespace MyFps
             //4. 1초 대기 후 플레이 캐릭터 활성화
             yield return new WaitForSeconds(1f);
             thePlayer.SetActive(true);
+        }
+
+        //데이터 저장하기
+        private void SaveData()
+        {
+            //저장된 번호 가져오기
+            int saveNumber = PlayerPrefs.GetInt(SceneNumber, -1);
+           
+            //씬 번호 저장
+            int sceneNumber = SceneManager.GetActiveScene().buildIndex;
+            if (sceneNumber > saveNumber)
+            {
+                //PlayerPrefs.SetInt(SceneNumber, sceneNumber);
+                //Debug.Log($"Save SceneNumber : {sceneNumber}");
+                SaveLoad.SaveData();
+            }
         }
         #endregion
     }

@@ -28,6 +28,9 @@ namespace MyFps
     public class PlayerState : PersistantSingleton<PlayerState>
     {
         #region Variables
+        //씬 번호
+        private int sceneNumber;
+
         //탄환 갯수
         private int ammoCount;
 
@@ -41,6 +44,7 @@ namespace MyFps
         #endregion
 
         #region Property
+        public int SceneNumber { get { return sceneNumber; } }
         public int AmmoCount { get { return ammoCount; } }
         public WeaponType WeaponType { get { return weaponType; } }
         #endregion
@@ -57,11 +61,17 @@ namespace MyFps
             puzzleItems = new bool[(int)PuzzleItem.MaxPuzzleItem];
 
             //TO DO : cheating(=>2번씬에서 총 보이게)
-            weaponType = WeaponType.Pistol;
+            //weaponType = WeaponType.Pistol;
         }
         #endregion
 
         #region Custom Method
+        //씬 번호 저장하기
+        public void SetSceneNumber(int number)
+        {
+            sceneNumber = number;
+        }
+
         //ammoCount 추가하기
         public void AddAmmo(int amount)
         {
