@@ -32,7 +32,7 @@ namespace MyFps
         public Slider sfxSlider;
 
         //씬 번호
-        private int sceneNumber = -1;
+        //private int sceneNumber = -1;
 
         //audioMixer, Playerprefs 파라미터
         private const string BGMVolume = "BGMVolume";
@@ -47,7 +47,7 @@ namespace MyFps
             GameDataInit();
             
             //로드게임 버튼 셋팅
-            if(sceneNumber < 0)
+            if(PlayerState.Instance.SceneNumber < 0)
             {
                 //loadGameButton.interactable = false;
                 //loadButtonLayerGroup.alpha = 0.1f;
@@ -69,10 +69,6 @@ namespace MyFps
             Cursor.visible = true;
 
             //초기화
-        }
-        private void Update()
-        {
-            
         }
         #endregion
 
@@ -99,7 +95,7 @@ namespace MyFps
             Debug.Log("LoadGame");
 
             //플레이 씬으로 이동
-            fader.FadeTo(sceneNumber);
+            fader.FadeTo(PlayerState.Instance.SceneNumber);
         }
 
         public void Options()
@@ -218,7 +214,11 @@ namespace MyFps
             //sceneNumber = PlayerPrefs.GetInt(SceneNumber, -1);  //-1 : 저장된 데이터 없음, 씬번호는 0부터 시작함
             //PlayerPrefs.SetInt(SceneNumber, sceneNumber);
             //Debug.Log($"Save SceneNumber : {sceneNumber}");
-            SaveLoad.SaveData();
+            
+            PlayData playData = SaveLoad.LoadData();
+            
+            //PlayerState의 데이터 초기화
+            PlayerState.Instance.PlayerStatsIntialize(playData);
         }
         #endregion
     }

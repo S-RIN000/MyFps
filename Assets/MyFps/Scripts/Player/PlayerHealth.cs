@@ -30,7 +30,7 @@ namespace MyFps
         private void Start()
         {
             //초기화
-            health = maxHealth;
+            health = PlayerState.Instance.Health;
         }
         private void Update()
         {
@@ -51,7 +51,9 @@ namespace MyFps
         public void TakeDamage(float damage)
         {
             health -= damage;
-            Debug.Log($"Player Health : {health}");
+            //Debug.Log($"Player Health : {health}");
+
+            PlayerState.Instance.SetHealth(health);
 
             //데미지 이펙트
             //player.OnDamage();
